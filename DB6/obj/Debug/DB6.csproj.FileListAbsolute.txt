@@ -8,3 +8,6 @@ C:\Projects\DB_6-8\DB6\obj\Debug\DB6.csproj.GenerateResource.cache
 C:\Projects\DB_6-8\DB6\obj\Debug\DB6.csproj.CoreCompileInputs.cache
 C:\Projects\DB_6-8\DB6\obj\Debug\DB6.exe
 C:\Projects\DB_6-8\DB6\obj\Debug\DB6.pdb
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.EditServiceman.resources
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.EditBranches.resources
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.EditRank.resources

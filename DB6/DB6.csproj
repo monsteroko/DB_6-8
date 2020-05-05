@@ -47,6 +47,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB.cs" />
+    <Compile Include="EditBranches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBranches.Designer.cs">
+      <DependentUpon>EditBranches.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRank.Designer.cs">
+      <DependentUpon>EditRank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditServiceman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditServiceman.Designer.cs">
+      <DependentUpon>EditServiceman.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +73,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditBranches.resx">
+      <DependentUpon>EditBranches.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRank.resx">
+      <DependentUpon>EditRank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditServiceman.resx">
+      <DependentUpon>EditServiceman.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,7 +38,7 @@ namespace DB6
             SqlDataReader reader = command.ExecuteReader();
 
             grid.ColumnCount = reader.FieldCount;
-            grid.RowCount = 1;
+            grid.RowCount = 2;
 
             for (int column = 0; column < reader.FieldCount; column++)
             {

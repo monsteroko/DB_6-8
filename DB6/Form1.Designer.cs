@@ -36,7 +36,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.table = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -87,7 +87,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -114,6 +114,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(344, 444);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -156,7 +157,7 @@
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(348, 415);
+            this.tabPage4.Size = new System.Drawing.Size(336, 415);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Calculates";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -192,15 +193,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Created by Oleg Oliinyk, 535a";
             // 
-            // dataGridView1
+            // table
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(355, 8);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(832, 436);
-            this.dataGridView1.TabIndex = 1;
+            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table.Location = new System.Drawing.Point(355, 8);
+            this.table.Name = "table";
+            this.table.RowHeadersWidth = 51;
+            this.table.RowTemplate.Height = 24;
+            this.table.Size = new System.Drawing.Size(832, 436);
+            this.table.TabIndex = 1;
             // 
             // button1
             // 
@@ -221,6 +222,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Servicemans ages";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 
@@ -264,10 +266,16 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ID",
+            "First Name",
+            "Last Name",
+            "Age"});
             this.comboBox1.Location = new System.Drawing.Point(118, 27);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(163, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // numericUpDown1
             // 
@@ -284,15 +292,17 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Search by ID";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(31, 105);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 32);
+            this.button4.Size = new System.Drawing.Size(134, 32);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Search by name";
+            this.button4.Text = "Search by l.name";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -302,12 +312,13 @@
             this.button5.TabIndex = 6;
             this.button5.Text = "Select all";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 110);
+            this.textBox1.Location = new System.Drawing.Point(171, 110);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 22);
+            this.textBox1.Size = new System.Drawing.Size(110, 22);
             this.textBox1.TabIndex = 7;
             // 
             // button6
@@ -318,6 +329,7 @@
             this.button6.TabIndex = 8;
             this.button6.Text = "Create new";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // label4
             // 
@@ -341,8 +353,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(148, 43);
             this.button7.TabIndex = 11;
-            this.button7.Text = "Create";
+            this.button7.Text = "Change";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -352,6 +365,7 @@
             this.button8.TabIndex = 12;
             this.button8.Text = "Delete";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // groupBox3
             // 
@@ -375,6 +389,7 @@
             this.button9.TabIndex = 12;
             this.button9.Text = "Delete";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -409,6 +424,7 @@
             this.button11.TabIndex = 8;
             this.button11.Text = "Create new";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // groupBox4
             // 
@@ -441,6 +457,7 @@
             this.button12.TabIndex = 6;
             this.button12.Text = "Select all";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -450,6 +467,7 @@
             this.button13.TabIndex = 5;
             this.button13.Text = "Search by name";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
@@ -459,6 +477,7 @@
             this.button14.TabIndex = 4;
             this.button14.Text = "Search by ID";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // numericUpDown4
             // 
@@ -470,10 +489,14 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "ID",
+            "Name"});
             this.comboBox2.Location = new System.Drawing.Point(118, 27);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(163, 24);
             this.comboBox2.TabIndex = 1;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -506,6 +529,7 @@
             this.button15.TabIndex = 12;
             this.button15.Text = "Delete";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
@@ -515,6 +539,7 @@
             this.button16.TabIndex = 11;
             this.button16.Text = "Create";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // numericUpDown5
             // 
@@ -540,6 +565,7 @@
             this.button17.TabIndex = 8;
             this.button17.Text = "Create new";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // groupBox6
             // 
@@ -572,6 +598,7 @@
             this.button18.TabIndex = 6;
             this.button18.Text = "Select all";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
@@ -581,6 +608,7 @@
             this.button19.TabIndex = 5;
             this.button19.Text = "Search by name";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
@@ -590,6 +618,7 @@
             this.button20.TabIndex = 4;
             this.button20.Text = "Search by ID";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // numericUpDown6
             // 
@@ -601,6 +630,9 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "ID",
+            "Name"});
             this.comboBox3.Location = new System.Drawing.Point(118, 27);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(163, 24);
@@ -620,7 +652,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.table);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Lab6";
@@ -631,7 +663,7 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -664,7 +696,7 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView table;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;

@@ -1,0 +1,10 @@
+C:\Projects\DB_6-8\DB6\bin\Debug\DB6.exe.config
+C:\Projects\DB_6-8\DB6\bin\Debug\DB6.exe
+C:\Projects\DB_6-8\DB6\bin\Debug\DB6.pdb
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.csprojAssemblyReference.cache
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.Form1.resources
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.Properties.Resources.resources
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.csproj.GenerateResource.cache
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.csproj.CoreCompileInputs.cache
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.exe
+C:\Projects\DB_6-8\DB6\obj\Debug\DB6.pdb

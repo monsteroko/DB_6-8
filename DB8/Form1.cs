@@ -218,8 +218,8 @@ namespace DB8
                 return;
 
             int index = dataGridView1.SelectedRows[0].Index;
-            int rnkId = (byte)_servicemans[index]["Id_rank"];
-
+            int rnkId = (int)_servicemans[index]["Id_rank"];
+            int brnId = (int)_servicemans[index]["Branches_id_Branch"];
             foreach (var row in dataGridView2.Rows.OfType<DataGridViewRow>())
             {
                 row.Selected = false;
@@ -232,9 +232,16 @@ namespace DB8
 
             for (int i = 0; i < _ranks.Count; i++)
             {
-                if ((byte)_ranks[i]["Id_rank"] == rnkId)
+                if ((int)_ranks[i]["Id_rank"] == rnkId)
                 {
                     dataGridView2.Rows[i].Selected = true;
+                }
+            }
+            for (int i = 0; i < _branches.Count; i++)
+            {
+                if ((int)_branches[i]["Id_Branch"] == brnId)
+                {
+                    dataGridView3.Rows[i].Selected = true;
                 }
             }
         }
